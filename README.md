@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio - Front-End Developer
+
+A modern, premium portfolio website built with Next.js 14+, TypeScript, and Tailwind CSS. Designed for front-end developers who want to showcase their work with a professional, high-quality web presence.
+
+![Portfolio Preview](https://via.placeholder.com/1200x630/1a1a2e/e94560?text=Portfolio)
+
+## Features
+
+- **Modern Design** - Premium, Awwwards-quality aesthetic with glassmorphism effects
+- **Dark/Light Mode** - System-preference aware theme toggle
+- **Responsive** - Mobile-first design that looks great on all devices
+- **Fast Performance** - Optimized with Next.js App Router
+- **Animations** - Smooth scroll-based animations with Framer Motion
+- **Accessible** - ARIA attributes and keyboard navigation support
+- **SEO Optimized** - Proper metadata and semantic HTML
+
+## Tech Stack
+
+- **Framework**: Next.js 14+ (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Forms**: React Hook Form + Zod
+- **Theme**: next-themes
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone <your-repo-url>
+
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+myPortfolio/
+├── app/                    # Next.js App Router
+│   ├── globals.css        # Global styles & theme
+│   ├── layout.tsx         # Root layout
+│   ├── page.tsx           # Main page
+│   └── not-found.tsx     # 404 page
+├── components/
+│   ├── ui/               # shadcn/ui components
+│   ├── sections/         # Page sections
+│   │   ├── Hero.tsx
+│   │   ├── About.tsx
+│   │   ├── Projects.tsx
+│   │   ├── Skills.tsx
+│   │   ├── Experience.tsx
+│   │   └── Contact.tsx
+│   ├── Navbar.tsx
+│   ├── Footer.tsx
+│   ├── ScrollProgress.tsx
+│   └── CommandMenu.tsx
+├── data/
+│   └── portfolio.ts      # Portfolio data
+└── lib/
+    └── utils.ts          # Utility functions
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Customization
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Update Personal Information
 
-## Deploy on Vercel
+Edit `data/portfolio.ts` to update:
+- Name, bio, headline
+- Contact details
+- Skills and tech stack
+- Experience history
+- Projects
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Theme Colors
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Modify CSS variables in `app/globals.css`:
+- `--primary`: Main accent color
+- `--background`: Page background
+- `--foreground`: Text color
+- `--card`: Card background
+
+## Sections
+
+1. **Hero** - Animated introduction with gradient background
+2. **About** - Professional summary with tech stack badges
+3. **Projects** - Filterable project showcase (GitHub link when no projects)
+4. **Skills** - Categorized skills with icons
+5. **Experience** - Timeline of work history
+6. **Contact** - Form with validation + social links
+
+## Keyboard Shortcuts
+
+- `Cmd/Ctrl + K` - Open command menu for quick navigation
+
+## License
+
+MIT License - Feel free to use this for your own portfolio!
