@@ -2,7 +2,7 @@
 
 A modern, premium portfolio website built with Next.js 14+, TypeScript, and Tailwind CSS. Designed for front-end developers who want to showcase their work with a professional, high-quality web presence.
 
-![Portfolio Preview](https://via.placeholder.com/1200x630/1a1a2e/e94560?text=Portfolio)
+![Portfolio Preview](public/app-img.png)
 
 ## Features
 
@@ -29,7 +29,7 @@ A modern, premium portfolio website built with Next.js 14+, TypeScript, and Tail
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn
 
 ### Installation
@@ -87,6 +87,7 @@ myPortfolio/
 ### Update Personal Information
 
 Edit `data/portfolio.ts` to update:
+
 - Name, bio, headline
 - Contact details
 - Skills and tech stack
@@ -96,6 +97,7 @@ Edit `data/portfolio.ts` to update:
 ### Theme Colors
 
 Modify CSS variables in `app/globals.css`:
+
 - `--primary`: Main accent color
 - `--background`: Page background
 - `--foreground`: Text color
