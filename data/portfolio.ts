@@ -92,7 +92,7 @@ I pay attention to performance, accessibility, and clean structure because I bel
       company: "Remza Investment Company",
       location: "Bahrain (Remote)",
       type: "remote",
-      duration: "2020 – 2025",
+      duration: "2020 – 2026",
       description:
         "Developed and maintained modern web applications using React and Next.js for a leading investment company.",
       achievements: [
