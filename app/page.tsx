@@ -21,7 +21,7 @@ export default function Home() {
       <ScrollProgress />
       <Navbar onOpenCommandMenu={() => setCommandMenuOpen(true)} />
       
-      <main>
+      <main id="main-content">
         <Hero />
         <About />
         <Projects />

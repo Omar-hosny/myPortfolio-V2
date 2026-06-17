@@ -2,35 +2,29 @@
 
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { portfolioData, type Experience } from "@/data/portfolio";
+import { portfolioData } from "@/data/portfolio";
 import { Calendar, Award } from "lucide-react";
 
 export function Experience() {
   return (
-    <section id="experience" className="py-24 relative">
-      <div className="absolute inset-0 bg-grid opacity-30" />
+    <section id="experience" className="py-24 md:py-32 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.02] to-transparent" />
 
       <div className="container relative z-10 px-6 max-w-6xl mx-auto">
-        <motion.div
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-16"
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-16 leading-tight"
         >
-          <span className="text-sm font-medium text-primary mb-4 block">
-            EXPERIENCE
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Career <span className="text-gradient">journey</span>
-          </h2>
-        </motion.div>
+          Career <span className="text-gold">journey</span>
+        </motion.h2>
 
         <div className="relative">
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-linear-to-b from-primary via-primary/50 to-transparent" />
+          <div className="absolute left-[1.125rem] md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-gold/50 via-gold/20 to-transparent" />
 
-          <div className="space-y-12">
+          <div className="space-y-16">
             {portfolioData.experience.map((exp, index) => (
               <ExperienceItem key={exp.id} experience={exp} index={index} />
             ))}
@@ -49,52 +43,60 @@ function ExperienceItem({
   index: number;
 }) {
   const isEven = index % 2 === 0;
+  const companyInitials = experience.company
+    .split(" ")
+    .map((w) => w[0])
+    .join("");
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className={`relative flex items-center ${
-        isEven ? "md:flex-row" : "md:flex-row-reverse"
+      transition={{ duration: 0.6, delay: index * 0.15, ease: [0.22, 1, 0.36, 1] as const }}
+      className={`relative flex flex-col md:flex-row items-start ${
+        isEven ? "" : "md:flex-row-reverse"
       }`}
     >
-      <div
-        className={`absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-primary -translate-x-1/2 z-10`}
-      >
-        <div className="absolute inset-0 rounded-full bg-primary animate-ping opacity-30" />
+      <div className="absolute left-4 md:left-1/2 w-[18px] h-[18px] -translate-x-1/2 z-10 mt-6">
+        <div className="w-full h-full rounded-full bg-gold border-[3px] border-background" />
       </div>
 
+      <div className="hidden md:block md:w-[calc(50%-2.5rem)]" />
+
       <div
-        className={`ml-12 md:ml-0 md:w-[calc(50%-2rem)] ${isEven ? "md:mr-auto md:pr-12" : "md:ml-auto md:pl-12"}`}
+        className={`ml-12 md:ml-0 md:w-[calc(50%-2.5rem)] ${
+          isEven ? "md:pr-8" : "md:pl-8"
+        }`}
       >
-        <Card className="border-none bg-card/30 glass-hover">
-          <CardContent className="p-6">
+        <Card className="border-border/60 bg-card/50 group relative overflow-hidden">
+          <div className="absolute -top-6 -right-6 text-[6rem] md:text-[8rem] font-heading font-bold leading-none text-primary/[0.04] select-none group-hover:text-primary/[0.07] transition-colors duration-500">
+            {companyInitials}
+          </div>
+          <CardContent className="p-6 relative z-10">
             <div className="flex items-start justify-between gap-4 mb-4">
               <div>
-                <h3 className="text-lg font-semibold">{experience.role}</h3>
-                <p className="text-primary font-medium">{experience.company}</p>
+                <h3 className="text-lg md:text-xl font-heading font-semibold">
+                  {experience.role}
+                </h3>
+                <p className="text-gold font-medium font-sans text-sm">
+                  {experience.company}
+                </p>
                 {experience.location && (
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-xs text-muted-foreground font-sans mt-0.5">
                     {experience.location}
                   </p>
                 )}
               </div>
-              <Badge
-                variant={experience.type === "remote" ? "secondary" : "default"}
-                className="rounded-full whitespace-nowrap"
-              >
-                {experience.type}
-              </Badge>
+              <div className="shrink-0 flex flex-col items-end gap-1">
+                <div className="flex items-center gap-1.5 text-xs text-muted-foreground font-sans">
+                  <Calendar className="w-3 h-3" />
+                  {experience.duration}
+                </div>
+              </div>
             </div>
 
-            <div className="flex items-center gap-2 text-muted-foreground text-sm mb-4">
-              <Calendar className="w-4 h-4" />
-              {experience.duration}
-            </div>
-
-            <p className="text-muted-foreground mb-4">
+            <p className="text-sm text-muted-foreground mb-4 font-sans leading-relaxed">
               {experience.description}
             </p>
 
@@ -105,11 +107,11 @@ function ExperienceItem({
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: i * 0.1 }}
+                  transition={{ duration: 0.3, delay: i * 0.08 }}
                   className="flex items-start gap-2"
                 >
-                  <Award className="w-4 h-4 text-primary mt-1 shrink-0" />
-                  <span className="text-sm text-muted-foreground">
+                  <Award className="w-3.5 h-3.5 text-gold mt-0.5 shrink-0" />
+                  <span className="text-sm text-muted-foreground font-sans">
                     {achievement}
                   </span>
                 </motion.div>

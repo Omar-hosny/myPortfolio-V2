@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { motion } from "framer-motion";
-import { 
-  Search, 
+import {
+  Search,
   ArrowRight,
   User,
   FolderKanban,
@@ -13,7 +13,7 @@ import {
   Mail,
   Github,
   Linkedin,
-  Twitter
+  Twitter,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -48,11 +48,11 @@ export function CommandMenu() {
   }, []);
 
   const filteredNavItems = navItems.filter((item) =>
-    item.name.toLowerCase().includes(search.toLowerCase())
+    item.name.toLowerCase().includes(search.toLowerCase()),
   );
 
   const filteredExternalLinks = externalLinks.filter((link) =>
-    link.name.toLowerCase().includes(search.toLowerCase())
+    link.name.toLowerCase().includes(search.toLowerCase()),
   );
 
   return (
@@ -73,7 +73,7 @@ export function CommandMenu() {
             exit={{ opacity: 0, scale: 0.95, y: -20 }}
             className="fixed left-1/2 top-[20%] -translate-x-1/2 z-50 w-full max-w-lg"
           >
-            <div className="rounded-2xl border bg-card shadow-2xl overflow-hidden">
+            <div className="rounded-xl border bg-card shadow-2xl overflow-hidden">
               <div className="flex items-center border-b px-4">
                 <Search className="w-5 h-5 text-muted-foreground mr-3" />
                 <input
@@ -136,11 +136,12 @@ export function CommandMenu() {
                   </div>
                 )}
 
-                {filteredNavItems.length === 0 && filteredExternalLinks.length === 0 && (
-                  <div className="py-12 text-center text-muted-foreground">
-                    <p>No results found</p>
-                  </div>
-                )}
+                {filteredNavItems.length === 0 &&
+                  filteredExternalLinks.length === 0 && (
+                    <div className="py-12 text-center text-muted-foreground">
+                      <p>No results found</p>
+                    </div>
+                  )}
               </div>
             </div>
           </motion.div>
